@@ -1,20 +1,25 @@
 import { useEffect } from "react";
-import { I18nextProvider } from "react-i18next";
-import { ThemeProvider } from "@material-ui/styles";
+import { store, wrapper } from "../store/store";
 import { Provider } from "react-redux";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { ThemeProvider } from "@material-ui/styles";
 import theme from "./theme";
-import store from "../store/store";
+import { appWithTranslation } from "next-i18next";
+
 import "../styles/reset.scss";
 import "../styles/globals.scss";
 
-const MyApp = ({ Component, pageProps }) => {
-  // const language = useSelector((state) => state.settingsReducer.language);
+const App = ({ Component, pageProps }) => {
+  const language = useSelector((state) => state.settings.language);
+
+  console.log("language", language);
 
   // useEffect(() => {
   //   const savedLang = localStorage.getItem("lang");
   //   i18n.changeLanguage(savedLang || language);
   // }, [language]);
+
+  console.log("store", store);
 
   return (
     <Provider store={store}>
@@ -25,4 +30,4 @@ const MyApp = ({ Component, pageProps }) => {
   );
 };
 
-export default MyApp;
+export default appWithTranslation(wrapper.withRedux(App));

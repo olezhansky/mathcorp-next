@@ -3,6 +3,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Logo from "../Logo/Logo";
 import Menu from "../Menu/Menu";
+import { useDispatch, useSelector } from "react-redux";
 import { MenuItem, Select } from "@material-ui/core";
 import MyButton from "../UI/MyButton/MyButton";
 import classes from "./MainLayout.module.scss";
@@ -10,7 +11,12 @@ import classes from "./MainLayout.module.scss";
 const MainLayout = ({ children, title }) => {
   const [language, setLanguage] = useState("ua");
 
+  // const language = useSelector((state) => state.settings.language);
+
+  // console.log(language);
+
   const handleChangeLanguage = (e) => {
+    console.log(e.target.value);
     setLanguage(e.target.value);
   };
   return (
@@ -77,7 +83,7 @@ const MainLayout = ({ children, title }) => {
           </div>
         </div>
       </div>
-      <main>{children}</main>
+      <main style={{ paddingTop: "150px" }}>{children}</main>
     </>
   );
 };
