@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import MainLayout from "../components/MainLayout/MainLayout";
+import useTranslation from "next-translate/useTranslation";
 
 const TeachersPage = () => {
+  const { t } = useTranslation();
   const scrollToTopHandler = () => {
     window.scrollTo({
       top: 0,
@@ -14,7 +16,7 @@ const TeachersPage = () => {
 
   return (
     <MainLayout>
-      <div className="container">5</div>
+      <div className="container">{t("teachers:title")}</div>
     </MainLayout>
   );
 };

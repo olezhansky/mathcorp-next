@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
-import logo from '../../assets/icons/logo.svg'
+import logo from '../../assets/images/common/logo.png'
 import logoMobile from '../../assets/icons/logo.svg'
 import { useHistory } from 'react-router-dom'
 // import { useDispatch } from 'react-redux'
@@ -26,7 +26,7 @@ const Logo = () => {
     }
     return (
         <div className={classes.Logo}>
-            <Image src={logo} alt="img" width="70px" height="70px"/>
+            <Image src={logoMobile} width="70px" height='60px'  alt="img" />
             {/* {tabletMatch &&  <img src={logo} alt="img"/>}
             {mobileMatch && !tabletMatch && <img src={logoMobile} alt="img"/>} */}
         </div>

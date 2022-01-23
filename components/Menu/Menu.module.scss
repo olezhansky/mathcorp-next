@@ -4,27 +4,22 @@
     display: flex;
     justify-content: space-between;
 }
-.Item {
+.Item + .Item {
+    margin-left: 15%;
+}
+.ItemLink {
     font-size: 16px;
     line-height: 20px;
     color: #120F0F;
-    text-decoration: none;
     transition: .3s ease;
     &:hover {
         transition: .3s ease;
         color: #4797C8;
     }
-    a {
-        text-decoration: none;
-    }
 }
-.ItemActive {   
-    font-size: 16px;
-    line-height: 20px;
+.ItemLinkActive {   
     color: #4797C8;
-    text-decoration: none;
     transition: .3s ease;
 }
-.Item + .Item {
-    margin-left: 15%;
-}
+
+

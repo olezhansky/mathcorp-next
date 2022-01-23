@@ -1,0 +1,8 @@
+{
+    "locales": ["ua", "ru"],
+    "defaultLocale": "ua",
+    "pages": {
+        "*": ["common"],
+        "/teachers": ["teachers"]
+    }
+}

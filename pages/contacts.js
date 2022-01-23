@@ -12,7 +12,7 @@ const Contacts = () => {
     scrollToTopHandler();
   }, []);
 
-  return <MainLayout>7</MainLayout>;
+  return <MainLayout>Contacts</MainLayout>;
 };
 
 export default Contacts;
