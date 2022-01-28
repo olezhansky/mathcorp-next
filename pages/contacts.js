@@ -12,7 +12,11 @@ const Contacts = () => {
     scrollToTopHandler();
   }, []);
 
-  return <MainLayout>Contacts</MainLayout>;
+  return (
+    <MainLayout>
+      <div style={{ paddingTop: "100px" }}>Contacts</div>
+    </MainLayout>
+  );
 };
 
 export default Contacts;

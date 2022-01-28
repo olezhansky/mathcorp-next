@@ -1,0 +1,14 @@
+.ReviewsCarousel {
+    display: flex;
+    justify-content: space-between;
+}
+.Slide {
+    cursor: pointer;
+    margin: 0 10px;
+    @media (max-width: 768px) {
+        img {
+            height: 350px;
+            max-width: 280px;
+        }
+    }
+}

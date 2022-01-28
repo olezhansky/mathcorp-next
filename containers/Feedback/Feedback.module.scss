@@ -1,0 +1,93 @@
+.Wrapper {
+    background-color: #DEF2FF;
+    padding: 60px 0;
+    @media (max-width: 480px) {
+        background-color: #fff;
+        padding: 0;
+    }
+}
+.Inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 770px;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+        display: block;
+    }
+    @media (max-width: 480px) {
+        padding-bottom: 5px;
+    }
+
+}
+.Content {
+    margin-right: 60px;
+    @media (max-width: 768px) {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+}
+.OvalText {
+    position: relative;
+    img {
+        @media (max-width: 330px) {
+            max-width: 270px;
+        }
+    }
+}
+.Text {
+    position: absolute;
+    top: -3%;
+    left: 4.5%;
+    max-width: 340px;
+    text-align: center;
+    padding: 40px 45px;
+    border-radius: 50%;
+    font-size: 16px;
+    line-height: 22px;
+    z-index: 50;
+    @media (max-width: 768px) {
+        left: -5px;
+        top: -8%;
+    }
+    @media (max-width: 480px) {
+        left: -5px;
+        font-size: 14px;
+        line-height: 22px;
+    }
+    @media (max-width: 330px) {
+        max-width: 260px;
+        padding: 40px 10px;
+        top: -10%;
+        left: 3%;
+        font-size: 12px;
+        line-height: 22px;
+    }
+    span {
+        font-weight: 700;
+        @media (max-width: 480px) {
+            color: #4797C8;
+        }
+    }
+}
+.Images {
+    margin-top: 50px;
+    margin-left: 130px;
+    position: relative;
+    z-index: 10;
+    @media (max-width: 768px) {
+        margin-top: 0px;
+    }
+    @media (max-width: 480px) {
+        margin-left: 80px;   
+    }  
+}
+.Form {
+    flex: 1 1 auto;
+    border-radius: 10px;
+    @media (max-width: 768px) {
+        margin: -15px auto 0;
+        max-width: 330px;
+    }
+}
+    
