@@ -6,6 +6,8 @@ import Why from "../containers/Why/Why";
 import HowJoin from "../containers/HowJoin/HowJoin";
 import Price from "../containers/Price/Price";
 import TeachersContainer from "../containers/TeachersContainer/TeachersContainer";
+import Reviews from "../containers/Reviews/Reviews";
+import Feedback from "../containers/Feedback/Feedback";
 
 export default function Home(props) {
   const { t } = useTranslation();
@@ -17,6 +19,8 @@ export default function Home(props) {
       <HowJoin />
       <Price />
       <TeachersContainer />
+      <Reviews />
+      <Feedback />
     </MainLayout>
   );
 }

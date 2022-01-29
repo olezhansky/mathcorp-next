@@ -8,7 +8,8 @@ import instagramImg from '../../assets/images/footer/instagram.png'
 import classes from './ContactsContainer.module.scss'
 import MapLivoberezhna from '../../components/Maps/MapLivoberezhna/MapLivoberezhna'
 import MapLukianivska from '../../components/Maps/MapLukianivska/MapLukianivska'
-import { useTranslation } from 'react-i18next'
+import useTranslation from "next-translate/useTranslation";
+import Image from 'next/image';
 
 const ContactsContainer = () => {
     const { t } = useTranslation()
@@ -20,7 +21,7 @@ const ContactsContainer = () => {
         <div className={classes.Wrapper}>
             <div className={classes.Inner}>
                 <div className={classes.Title}>
-                    <Title title={t('contacts.title')}/>
+                    <Title title={t('contacts:general.title')}/>
                 </div>
                 <div className={classes.Content}>
                     <div className={classes.ContactInfo}>
@@ -30,11 +31,11 @@ const ContactsContainer = () => {
                             data-aos="fade-right"
                             data-aos-duration="500"
                         >
-                            <img src={locationImg} alt="img"/>
+                            <Image src={locationImg} alt="img"/>
                             <p 
                                 className={state === 'lukianivska' ? classes.ContactInfoItemNameActive : classes.ContactInfoItemName}
                             >
-                                {t('contacts.street1')}
+                                {t('contacts:general.street1')}
                             </p>
                         </div>
                         <div 
@@ -43,11 +44,11 @@ const ContactsContainer = () => {
                             data-aos="fade-right"
                             data-aos-duration="1000"
                         >
-                            <img src={locationImg} alt="img"/>
+                            <Image src={locationImg} alt="img"/>
                             <p 
                                 className={state === 'livoberezhna' ? classes.ContactInfoItemNameActive : classes.ContactInfoItemName}
                             >
-                                {t('contacts.street2')}
+                                {t('contacts:general.street2')}
                             </p>
                         </div>
                         <div 
@@ -55,7 +56,7 @@ const ContactsContainer = () => {
                             data-aos="fade-right"
                             data-aos-duration="1500"
                         >
-                            <img src={emailImg} alt="img"/>
+                            <Image src={emailImg} alt="img"/>
                             <a href="mailto: mathcorp.lv@gmail.com">mathcorp.lv@gmail.com</a>
                         </div>
                         <div 
@@ -63,7 +64,7 @@ const ContactsContainer = () => {
                             data-aos="fade-right"
                             data-aos-duration="2000"
                         >
-                            <img src={phoneImg} alt="img"/>
+                            <Image src={phoneImg} alt="img"/>
                             <a href="tel: +38(063)-972-51-07">+38(063)-972-51-07</a>
                         </div>
                         <div className={classes.SocialNetworks} data-aos="fade-right" data-aos-duration="2000">
@@ -72,13 +73,13 @@ const ContactsContainer = () => {
                                 href="https://m.facebook.com/pg/math.corporation.kyiv/reviews/?ref=page_internal&mt_nav=0" 
                                 target="_blank" className={classes.Facebook}
                             >
-                                <img src={facebookImg} alt="img"/>
+                                <Image src={facebookImg} alt="img"/>
                             </a>
                             <a 
                                 rel="noreferrer"
                                 href="https://www.instagram.com/math.corporation/?utm_medium=copy_link" 
                                 target="_blank"  className={classes.SocialNetwork}>
-                                <img src={instagramImg} alt="img"/>
+                                <Image src={instagramImg} alt="img"/>
                             </a>
                         </div>
                     </div>

@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import MainLayout from "../components/MainLayout/MainLayout";
+import ContactsContainer from "../containers/ContactsContainer/ContactsContainer";
 
 const Contacts = () => {
   const scrollToTopHandler = () => {
@@ -14,7 +15,7 @@ const Contacts = () => {
 
   return (
     <MainLayout>
-      <div style={{ paddingTop: "100px" }}>Contacts</div>
+      <ContactsContainer />
     </MainLayout>
   );
 };

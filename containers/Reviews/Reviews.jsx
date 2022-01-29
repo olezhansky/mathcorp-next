@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './Reviews.module.scss'
 import Title from '../../components/Title/Title'
 import ReviewsCarousel from '../../components/ReviewsCarousel/ReviewsCarousel'
-import { useTranslation } from 'react-i18next'
+import useTranslation from "next-translate/useTranslation";
 
 const Reviews = () => {
     const { t } = useTranslation()
@@ -10,7 +10,7 @@ const Reviews = () => {
         <div className={classes.Wrapper}>
            <div className="container">
                 <div className={classes.Title}>
-                    <Title title={t('reviews.title')}/>    
+                    <Title title={t('common:reviews.title')}/>    
                 </div>
                 <div className={classes.Reviews}>
                     <ReviewsCarousel />
@@ -20,7 +20,7 @@ const Reviews = () => {
                             rel="noreferrer"
                             target="_blank"
                         >
-                            {t('reviews.googleReviews')}
+                            {t('common:reviews.googleReviews')}
                             </a>
                     </div>
                 </div>

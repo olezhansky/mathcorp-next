@@ -3,6 +3,7 @@
     "defaultLocale": "ua",
     "pages": {
         "*": ["common"],
-        "/teachers": ["teachers"]
+        "/teachers": ["teachers"],
+        "/contacts": ["contacts"]
     }
 }

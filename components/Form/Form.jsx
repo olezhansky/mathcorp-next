@@ -5,10 +5,10 @@ import {
   Button
 } from "@material-ui/core";
 import { useFormik } from 'formik';
-import { useTranslation } from 'react-i18next';
+import useTranslation from "next-translate/useTranslation";
 import { useHistory } from 'react-router-dom'
 import validationsForm from './validationSchema'
-import sendMessageTotelegram from '../../api/telegram';
+// import sendMessageTotelegram from '../../api/telegram';
 import { closeModalAction } from '../../store/actions/settingsActions';
 import { useDispatch } from 'react-redux'
 import classes from './Form.module.scss'
@@ -36,7 +36,7 @@ const Form = () => {
     },
     validationSchema: validationsForm,
     onSubmit: (values, {resetForm}) => {
-      sendMessageTotelegram(`Ім'я: ${values.name}, телефон: ${values.phone}, клас: ${values.selectClass}`)
+      // sendMessageTotelegram(`Ім'я: ${values.name}, телефон: ${values.phone}, клас: ${values.selectClass}`)
       setTimeout(() => {
         dispatch(closeModalAction())
         sessionStorage.setItem('userName', values.name)
@@ -70,7 +70,7 @@ const Form = () => {
         <div className={classes.TextField} data-aos="fade-up" data-aos-duration="1000">
           <TextField
               id="name"
-              label={t('form.name')} 
+              label={t('common:form.name')} 
               value={formik.values.name}
               onChange={formik.handleChange}
               margin="dense"
@@ -86,7 +86,7 @@ const Form = () => {
               inputMode: 'numeric',
             }}
             id="phone"
-            label={t('form.phone')} 
+            label={t('common:form.phone')} 
             type="phone"
             placeholder='0672345678'
             value={formik.values.phone}
@@ -104,7 +104,7 @@ const Form = () => {
               SelectProps={{ MenuProps: { disableScrollLock: true } }}
               select
               id="selectClass"
-              label={t('form.class')}
+              label={t('common:form.class')}
               value={formik.values.selectClass}
               onChange={formik.handleChange("selectClass")}
               margin="dense"
@@ -122,7 +122,7 @@ const Form = () => {
           ) : null}
           </div>
           <div className={myError ? `${classes.Button} ${classes.ButtonDisabled}` : classes.Button}>
-            <Button variant="contained" onClick={handleSubmit}>{t('form.button')}</Button>
+            <Button variant="contained" onClick={handleSubmit}>{t('common:form.button')}</Button>
           </div>
       </form>
       

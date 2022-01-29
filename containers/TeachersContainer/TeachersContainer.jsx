@@ -19,7 +19,7 @@ const TeachersContainer = () => {
         <div className={classes.Wrapper}>
             <div className="container">
                 <div className={classes.Inner}>
-                    <Teachers numSlice={3}/>
+                    <Teachers numSlice={3} title="common:teachers.title" />
                     <div className={classes.Link}>
                         <span onClick={handleClick}>{t('common:teachers.other_teacher')}</span>
                     </div>

@@ -1,6 +1,7 @@
 import Head from "next/head";
 import classes from "./MainLayout.module.scss";
 import Header from "../../containers/Header/Header";
+import Footer from "../../containers/Footer/Footer";
 
 const MainLayout = ({ children, title }) => {
   return (
@@ -13,7 +14,7 @@ const MainLayout = ({ children, title }) => {
       </Head>
       <Header />
       <main>{children}</main>
-      <footer>footer</footer>
+      <Footer />
     </>
   );
 };

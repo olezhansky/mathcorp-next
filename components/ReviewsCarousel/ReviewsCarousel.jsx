@@ -2,6 +2,7 @@ import React  from "react";
 import Slider from "react-slick";
 import classes from './ReviewsCarousel.module.scss'
 import { reviews } from '../../data/data'
+import Image from 'next/image';
 
 const ReviewsCarousel = () => {
     const settings = {
@@ -23,7 +24,7 @@ const ReviewsCarousel = () => {
         <Slider {...settings} className={classes.ReviewsCarousel}>
           {reviews.map((review) => (
             <div className={classes.Slide}>
-              <img src={review.img} alt="img" />
+              <Image src={review.img} alt="img" />
             </div>
           ))}
         </Slider>
