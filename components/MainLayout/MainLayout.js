@@ -2,10 +2,12 @@ import Head from "next/head";
 import classes from "./MainLayout.module.scss";
 import Header from "../../containers/Header/Header";
 import Footer from "../../containers/Footer/Footer";
+import Modal from "../../components/Modals/ModalForm/ModalForm";
 
 const MainLayout = ({ children, title }) => {
   return (
     <>
+      <Modal />
       <Head>
         <title>{title} | Next Course</title>
         <meta name="keywords" content="next, js, react" />

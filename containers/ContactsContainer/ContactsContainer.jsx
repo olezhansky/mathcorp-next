@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Title from '../../components/Title/Title'
 import locationImg from '../../assets/images/contacts/location.png'
 import emailImg from '../../assets/images/contacts/email.png'
@@ -10,6 +10,7 @@ import MapLivoberezhna from '../../components/Maps/MapLivoberezhna/MapLivoberezh
 import MapLukianivska from '../../components/Maps/MapLukianivska/MapLukianivska'
 import useTranslation from "next-translate/useTranslation";
 import Image from 'next/image';
+import {useAppContext} from '../../context/state'
 
 const ContactsContainer = () => {
     const { t } = useTranslation()
@@ -17,6 +18,7 @@ const ContactsContainer = () => {
     const handleClick = (str) => {
         setState(str)
     }
+
     return (
         <div className={classes.Wrapper}>
             <div className={classes.Inner}>

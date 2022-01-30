@@ -3,17 +3,17 @@ import classes from './Teachers.module.scss'
 import MyButton from '../../components/UI/MyButton/MyButton'
 import Teachers from '../../components/Teachers/Teachers'
 import { useHistory } from 'react-router-dom'
-import { setRoutePathAction } from '../../store/actions/settingsActions'
-import { useDispatch } from 'react-redux'
+// import { setRoutePathAction } from '../../store/actions/settingsActions'
+// import { useDispatch } from 'react-redux'
 import useTranslation from "next-translate/useTranslation";
 
 const TeachersContainer = () => {
     const { t } = useTranslation()
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const router = useHistory()
     const handleClick = () => {
         router.push('/teachers')
-        dispatch(setRoutePathAction('/teachers'))
+        // dispatch(setRoutePathAction('/teachers'))
     }
     return (
         <div className={classes.Wrapper}>

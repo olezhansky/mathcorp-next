@@ -1,7 +1,7 @@
 import { MenuItem, Select } from '@material-ui/core';
 import React from 'react'
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useHistory } from 'react-router-dom'
 import { setLanguage, setRoutePathAction } from '../../store/actions/settingsActions';
 import MyButton from '../UI/Button/MyButton';
@@ -9,7 +9,7 @@ import classes from './MobileMenu.module.scss'
 
 const MobileMenu = ({mobileMenu, onToggle}) => {
     const { t } = useTranslation();
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const router = useHistory()
     const routePath = useSelector((state) => state.settingsReducer.routePath)
     const handleClick = () => {
