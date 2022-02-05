@@ -21,7 +21,7 @@ const HowJoin = () => {
                     </div>
                     <ul className={classes.List}>
                       {howJoinData.map((item) => (
-                        <li className={classes.ListItem} data-aos={item.aos} data-aos-duration={item.duration}>
+                        <li key={item.id} className={classes.ListItem} data-aos={item.aos} data-aos-duration={item.duration}>
                             <div className={classes.ListItemIcon}>
                                 <Image src={item.icon} alt="icon"/>
                             </div>

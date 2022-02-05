@@ -5,9 +5,16 @@ import { MenuItem, Select } from "@material-ui/core";
 import MyButton from "../../components/UI/MyButton/MyButton";
 import classes from "./Header.module.scss";
 import { useRouter } from "next/router";
+import { useAppContext } from '../../context/state'
+import MobileMenu from '../../components/MobileMenu/MobileMenu';
 
 const Header = () => {
 const router = useRouter();
+const {state, setState} = useAppContext()
+
+const handleClick = () => {
+  setState({...state, mobileMenu: !state.mobileMenu})
+}
 
   return (
     <div className={classes.Wrapper} data-aos="fade-down">
@@ -43,35 +50,29 @@ const router = useRouter();
             <MyButton variant="contained">Записатись</MyButton>
           </div>
         </div>
-        {/* <div className={classes.MenuSelectButtonMobileWrapper}>
+        <div className={classes.MenuSelectButtonMobileWrapper}>
           <div
             className={classes.MenuSelectButtonMobile}
             onClick={handleClick}
           >
+            <div className={state.mobileMenu ? classes.MenuLineTopTransform : classes.MenuLineTop}></div>
             <div
               className={
-                mobileMenu
-                  ? classes.MenuLineTopTransform
-                  : classes.MenuLineTop
-              }
-            ></div>
-            <div
-              className={
-                mobileMenu
+                state.mobileMenu
                   ? classes.MenuLineCenterTransform
                   : classes.MenuLineCenter
               }
             ></div>
             <div
               className={
-                mobileMenu
+                state.mobileMenu
                   ? classes.MenuLineBottomTransform
                   : classes.MenuLineBottom
               }
             ></div>
           </div>
-        </div> */}
-        {/* <MobileMenu mobileMenu={mobileMenu} onToggle={handleClick} /> */}
+        </div> 
+        <MobileMenu mobileMenu={state.mobileMenu} onToggle={handleClick} />
       </div>
     </div>
   </div>

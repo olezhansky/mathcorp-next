@@ -8,15 +8,12 @@ import { useFormik } from 'formik';
 import useTranslation from "next-translate/useTranslation";
 import { useHistory } from 'react-router-dom'
 import validationsForm from './validationSchema'
-// import sendMessageTotelegram from '../../api/telegram';
 import { closeModalAction } from '../../store/actions/settingsActions';
-// import { useDispatch } from 'react-redux'
 import classes from './Form.module.scss'
 
 
 const Form = () => {
   const { t } = useTranslation()
-  // const dispatch = useDispatch()
   const router = useHistory()
   const optionsClass = [
     {value: "5", label: "5"},

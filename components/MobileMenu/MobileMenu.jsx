@@ -1,42 +1,38 @@
 import { MenuItem, Select } from '@material-ui/core';
 import React from 'react'
-import { useTranslation } from 'react-i18next';
-// import { useDispatch, useSelector } from 'react-redux';
-import { NavLink, useHistory } from 'react-router-dom'
-import { setLanguage, setRoutePathAction } from '../../store/actions/settingsActions';
-import MyButton from '../UI/Button/MyButton';
+import useTranslation from "next-translate/useTranslation";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import MyButton from '../UI/MyButton/MyButton';
 import classes from './MobileMenu.module.scss'
 
 const MobileMenu = ({mobileMenu, onToggle}) => {
     const { t } = useTranslation();
-    // const dispatch = useDispatch()
-    const router = useHistory()
-    const routePath = useSelector((state) => state.settingsReducer.routePath)
+    const router = useRouter()
+    const {pathname} = router
+    console.log(router)
     const handleClick = () => {
-        onToggle()
-        dispatch(setRoutePathAction(router.location.pathname))
+        // onToggle()
+        console.log('onToggle')
     }
-    const language = useSelector((state) => state.settingsReducer.language)
-    const handleChangeLanguage = (e) => {
-        dispatch(setLanguage(e.target.value))
-    }
+
     return (
         <div className={mobileMenu ? classes.WrapperActive : classes.Wrapper}>
             <ul className={classes.List}>
                 <li onClick={handleClick} className={classes.Item}>
-                    <NavLink className={routePath === '/' ? classes.linkActive : classes.link} to='/'>
-                        {t('menu.main')}
-                    </NavLink>
+                    <Link  href='/'>
+                        <a className={pathname === '/' ? classes.linkActive : classes.link}>   {t('common:menu.main')}</a>
+                    </Link>
                 </li>
                 <li onClick={handleClick} className={classes.Item}>
-                    <NavLink className={routePath === '/teachers' ? classes.linkActive : classes.link} to='/teachers'>
-                        {t('menu.teachers')}
-                    </NavLink>
+                    <Link href='/teachers'>
+                        <a className={pathname === '/teachers' ? classes.linkActive : classes.link}>{t('common:menu.teachers')}</a>
+                    </Link>
                 </li>
                 <li onClick={handleClick} className={classes.Item}>
-                    < NavLink className={routePath === '/contacts' ? classes.linkActive : classes.link} to='/contacts'>
-                        {t('menu.contacts')}
-                    </NavLink>
+                    <Link  href='/contacts'>
+                        <a className={pathname === '/contacts' ? classes.linkActive : classes.link}>{t('common:menu.contacts')}</a>
+                    </Link>
                 </li>
             </ul>
             <div className={classes.Select}>
@@ -44,15 +40,24 @@ const MobileMenu = ({mobileMenu, onToggle}) => {
                     MenuProps={{
                         disableScrollLock: true,
                     }}
-                    value={language}
-                    onChange={handleChangeLanguage}
+                    value={router.locale}
+                    style={{ textTransform: "uppercase" }}
                     >
-                    <MenuItem value='UA'>UA</MenuItem>
-                    <MenuItem value='RU'>RU</MenuItem>
+                   {router.locales.map((locale) => (
+                    <MenuItem
+                        value={locale}
+                        key={locale}
+                        style={{ textTransform: "uppercase" }}
+                        >
+                        <Link href={router.asPath} locale={locale}>
+                            <a>{locale}</a>
+                        </Link>
+                    </MenuItem>
+                 ))}
                 </Select>
             </div>
             <div className={classes.Button}>
-                <MyButton variant="contained">{t('general.button')}</MyButton>
+                <MyButton variant="contained">{t('common:general.button')}</MyButton>
             </div>
         </div>
     )

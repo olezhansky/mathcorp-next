@@ -14,7 +14,7 @@ const Teachers = ({numSlice, title}) => {
             </div>
             <ul className={classes.List}>
                 {teachers.slice(0, numSlice).map((teacher) => (
-                    <li className={classes.ListItem} data-aos={teacher.aos} data-aos-duration={teacher.duration}>
+                    <li key={teacher.id} className={classes.ListItem} data-aos={teacher.aos} data-aos-duration={teacher.duration}>
                         <div className={classes.ListItemWrapper}>
                             <div className={classes.ListItemImg}>
                                 <Image src={teacher.img} alt="img"/>

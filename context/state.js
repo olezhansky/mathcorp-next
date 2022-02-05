@@ -5,6 +5,7 @@ const AppContext = createContext();
 export function AppWrapper({ children }) {
   const [state, setState] = useState({
     modal: false,
+    mobileMenu: false,
   });
 
   return (
