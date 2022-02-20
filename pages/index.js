@@ -1,5 +1,4 @@
 import MainLayout from "../components/MainLayout/MainLayout";
-import { wrapper } from "../store/store";
 import useTranslation from "next-translate/useTranslation";
 import About from "../containers/About/About";
 import Why from "../containers/Why/Why";
@@ -24,8 +23,3 @@ export default function Home(props) {
     </MainLayout>
   );
 }
-
-export const GetServerSideProps = wrapper.getServerSideProps(() => async () => {
-  console.log(store);
-  return { props: {} };
-});

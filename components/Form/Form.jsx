@@ -8,8 +8,9 @@ import { useFormik } from 'formik';
 import useTranslation from "next-translate/useTranslation";
 import { useHistory } from 'react-router-dom'
 import validationsForm from './validationSchema'
-import { closeModalAction } from '../../store/actions/settingsActions';
+import MyFieldInput from "../UI/MyFieldInput/MyFieldInput";
 import classes from './Form.module.scss'
+
 
 
 const Form = () => {
@@ -35,7 +36,6 @@ const Form = () => {
     onSubmit: (values, {resetForm}) => {
       // sendMessageTotelegram(`Ім'я: ${values.name}, телефон: ${values.phone}, клас: ${values.selectClass}`)
       setTimeout(() => {
-        dispatch(closeModalAction())
         sessionStorage.setItem('userName', values.name)
         resetForm()
         router.push('/thanks');
@@ -63,66 +63,53 @@ const Form = () => {
   const myError = formik.errors.name || formik.errors.phone ||  formik.errors.selectClass || !formik.values.name
 
   return (
-      <form className={classes.Form}>
-        <div className={classes.TextField} data-aos="fade-up" data-aos-duration="1000">
-          <TextField
-              id="name"
-              label={t('common:form.name')} 
-              value={formik.values.name}
-              onChange={formik.handleChange}
-              margin="dense"
-              variant="outlined"
-            />
-             {formik.touched.name  ? (
-            <div className={classes.TextFieldError}>{formik.errors.name}</div>
-          ) : null}
-        </div>
-        <div className={classes.TextField} data-aos="fade-up" data-aos-duration="1300">
-          <TextField
-            inputProps={{
-              inputMode: 'numeric',
-            }}
-            id="phone"
-            label={t('common:form.phone')} 
-            type="phone"
-            placeholder='0672345678'
-            value={formik.values.phone}
-            onChange={formik.handleChange}
-            margin="dense"
-            variant="outlined"
-            fullWidth
-          />
-           {formik.touched.phone  ? (
-            <div className={classes.TextFieldError}>{formik.errors.phone}</div>
-          ) : null}
-        </div>
-        <div className={classes.TextField} data-aos="fade-up" data-aos-duration="1600">
-            <TextField
-              SelectProps={{ MenuProps: { disableScrollLock: true } }}
-              select
-              id="selectClass"
-              label={t('common:form.class')}
-              value={formik.values.selectClass}
-              onChange={formik.handleChange("selectClass")}
-              margin="dense"
-              variant="outlined"
-              fullWidth
-            >
-              {optionsClass.map(option => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))}
-            </TextField>
-            {formik.touched.selectClass  ? (
-            <div className={classes.TextFieldError}>{formik.errors.selectClass}</div>
-          ) : null}
-          </div>
-          <div className={myError ? `${classes.Button} ${classes.ButtonDisabled}` : classes.Button}>
-            <Button variant="contained" onClick={handleSubmit}>{t('common:form.button')}</Button>
-          </div>
-      </form>
-      
+    <form className={classes.Form}>
+      <div className={classes.TextField} data-aos="fade-up" data-aos-duration="1000">
+        <MyFieldInput  
+          id="name" 
+          label={t('common:form.name')} 
+          value={formik.values.name} 
+          onChange={formik.handleChange} 
+          touched={formik.touched.name}
+          error={formik.errors.name}
+        />
+      </div>
+      <div className={classes.TextField} data-aos="fade-up" data-aos-duration="1300">
+        <MyFieldInput 
+          id="phone" 
+          label={t('common:form.phone')} 
+          value={formik.values.phone}  
+          onChange={formik.handleChange}
+          touched={formik.touched.phone}
+          error={formik.errors.phone}
+          placeholder='0672345678'
+          inputProps={{
+            inputMode: 'numeric',
+          }}
+        />
+      </div>
+      <div className={classes.TextField} data-aos="fade-up" data-aos-duration="1600">
+        <MyFieldInput 
+          id="selectClass" 
+          label={t('common:form.class')} 
+          value={formik.values.selectClass}  
+          onChange={formik.handleChange("selectClass")}
+          touched={formik.touched.selectClass}
+          error={formik.errors.selectClass}
+          SelectProps={{ MenuProps: { disableScrollLock: true } }}
+          select
+        >
+          {optionsClass.map(option => (
+            <MenuItem key={option.value} value={option.value}>
+              {option.label}
+            </MenuItem>
+          ))}
+        </MyFieldInput>
+      </div>
+      <div className={myError ? `${classes.Button} ${classes.ButtonDisabled}` : classes.Button}>
+        <Button variant="contained" onClick={handleSubmit}>{t('common:form.button')}</Button>
+      </div>
+    </form>
   );
 };
 

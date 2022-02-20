@@ -3,8 +3,6 @@ import Backdrop from '../../UI/Backdrop/Backdrop'
 import closeImg from '../../../assets/images/common/close.png'
 import img from '../../../assets/images/feedback/feedback-img.svg'
 import classes from './Modal.module.scss'
-// import { useDispatch, useSelector } from 'react-redux'
-import { closeModalAction } from '../../../store/actions/settingsActions'
 import Form from '../../Form/Form'
 import useTranslation from "next-translate/useTranslation";
 import Image from 'next/image';
@@ -12,13 +10,10 @@ import { useAppContext } from '../../../context/state'
 
 const Modal = () => {
     const { t } = useTranslation()
-    // const dispatch = useDispatch()
-    // const isModalActive = useSelector((state) => state.settingsReducer.modal)
 
     const {state, setState} = useAppContext()
 
     const handleClick = () => {
-        // dispatch(closeModalAction()) 
         setState({...state, modal: false})
 
     }

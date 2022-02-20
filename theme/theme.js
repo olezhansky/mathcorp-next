@@ -53,10 +53,6 @@ const theme = createTheme({
       },
     },
     MuiOutlinedInput: {
-      border: "2px solid #4797C8",
-      "&.MuiFormLabel-root": {
-        color: "red", // or black
-      },
       root: {
         "& .MuiOutlinedInput-notchedOutline": {
           border: "1px solid #4797C8",
